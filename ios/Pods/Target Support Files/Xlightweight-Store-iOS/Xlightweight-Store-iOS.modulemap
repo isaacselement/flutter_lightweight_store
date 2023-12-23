@@ -1,0 +1,6 @@
+module Xlightweight_Store_iOS {
+  umbrella header "Xlightweight-Store-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

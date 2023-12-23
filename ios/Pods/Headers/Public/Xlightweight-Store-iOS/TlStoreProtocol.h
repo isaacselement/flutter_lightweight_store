@@ -1,0 +1,1 @@
+../../../Xlightweight-Store-iOS/Xlightweight-Store-iOS/Classes/TlStoreProtocol.h

@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# use_frameworks!
+# use_modular_headers!
+
+# warn_for_unused_master_specs_repo => false
+
+platform :ios, '11.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+source 'ssh://git@gitlab.xiaopeng.local:10022/xp-bucket-ios/specs.git'
+
+target 'Runner' do
+
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+  use_modular_headers!
+
+  # Pods for Runner
+  pod 'Xlightweight-Store-iOS', :git =>'ssh://git@gitlab.xiaopeng.local:10022/flutter/packages/iOS/Xlightweight-Store-iOS.git', :commit => '4589403a4bde427411150a894cb1c055abc07d6b'
+end

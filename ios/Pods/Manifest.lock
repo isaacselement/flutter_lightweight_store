@@ -1,0 +1,22 @@
+PODS:
+  - Xlightweight-Store-iOS (0.0.1)
+
+DEPENDENCIES:
+  - "Xlightweight-Store-iOS (from `ssh://git@gitlab.xiaopeng.local:10022/flutter/packages/iOS/Xlightweight-Store-iOS.git`, commit `2d7370a5a6968cc61eb79ff550fffa6697a43651`)"
+
+EXTERNAL SOURCES:
+  Xlightweight-Store-iOS:
+    :commit: 2d7370a5a6968cc61eb79ff550fffa6697a43651
+    :git: "ssh://git@gitlab.xiaopeng.local:10022/flutter/packages/iOS/Xlightweight-Store-iOS.git"
+
+CHECKOUT OPTIONS:
+  Xlightweight-Store-iOS:
+    :commit: 2d7370a5a6968cc61eb79ff550fffa6697a43651
+    :git: "ssh://git@gitlab.xiaopeng.local:10022/flutter/packages/iOS/Xlightweight-Store-iOS.git"
+
+SPEC CHECKSUMS:
+  Xlightweight-Store-iOS: b26ad617d756d82e0af5ef5525ac9d30c1f35165
+
+PODFILE CHECKSUM: e6e1d73a2102a63077fb1f8be468cafd30b4730f
+
+COCOAPODS: 1.13.0
