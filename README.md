@@ -2,7 +2,9 @@
 
 [![pub package](https://img.shields.io/pub/v/flutter_lightweight_store.svg)](https://pub.dev/packages/flutter_lightweight_store)
 
-A light weight key-value store (SharedPreferences & NSUserdefaults) with saving to separated/customizable xml/plist.
+A light weight key-value store (`SharedPreferences` & `NSUserdefaults`) with saving to separated/customizable xml/plist.
+
+Differ from [shared_preferences](https://pub.dev/packages/shared_preferences) package, `flutter_lightweight_store` package save the key-value data to separated file as you need.
 
 ## Usage
 
