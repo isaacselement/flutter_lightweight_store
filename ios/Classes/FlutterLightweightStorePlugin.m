@@ -1,6 +1,8 @@
 #import "FlutterLightweightStorePlugin.h"
 #import "TlStoreManager.h"
 
+#import "EncryptorOfAES.h"
+
 @implementation FlutterLightweightStorePlugin
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -193,7 +195,41 @@
         return;
     }
     
+    // TODO ... Remove the following code after several versions
+    if ([method isEqualToString:@"restoreEmptyAesKeyIvContents"]) {
+        NSUserDefaults *user = [[NSUserDefaults alloc] initWithSuiteName:module];
+        if ([user objectForKey:@"__already_restored__"] == nil) {
+            [user setObject:@(YES) forKey:@"__already_restored__"];
+
+            NSDictionary<NSString *, id> *allKeysValues = [user dictionaryRepresentation];
+            NSArray<NSString *> *allKeys = allKeysValues.allKeys;
+
+            for (NSString *key in allKeys) {
+                if ([key hasPrefix:@"Apple"]) continue;
+                id value = [allKeysValues valueForKey:key];
+                if (![value isKindOfClass:NSString.class]) continue;
+
+                NSString *deKey = [self emptyAesKeyIvDecrypt:key];
+                NSString *deValue = [self emptyAesKeyIvDecrypt:value];
+                NSLog(@"Key: %@, Value: %@. De-key: %@, De-value: %@", key, value, deKey, deValue);
+                if (deKey == nil || deValue == nil) continue;
+                [user setObject:deValue forKey:deKey];
+            }
+        }
+
+        kSuccessResult(result, nil);
+        return;
+    }
+
     result(FlutterMethodNotImplemented);
+}
+
+- (NSString *)emptyAesKeyIvEncrypt: (NSString *)content {
+    return [EncryptorOfAES encryptToBase64:[content dataUsingEncoding:NSUTF8StringEncoding] Key:@"" IV:@""];
+}
+
+- (NSString *)emptyAesKeyIvDecrypt: (NSString *)content {
+    return [[NSString alloc] initWithData:[EncryptorOfAES decryptFromBase64:content Key:@"" IV:@""] encoding:NSUTF8StringEncoding];
 }
 
 @end

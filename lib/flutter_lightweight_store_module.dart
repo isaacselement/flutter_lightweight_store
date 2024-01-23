@@ -2,14 +2,22 @@ import 'package:flutter_lightweight_store/flutter_lightweight_store_platform.dar
 
 /// A Wrapper that one instance for one module
 class FlutterLightweightStoreModule {
+  /// shared_prefs/[module].xml (Android) or ~/Library/Preferences/[module].plist (iOS)
   String module;
+
+  /// AES KEY for encrypting key-value
   String? aesKey;
+
+  /// AES IV for encrypting key-value
   String? aesIV;
+
+  /// Android only, options for using apply() to save data to file instead of commit()
   bool? isAsyncApply;
+
+  /// For key-value data, key is clear text, but value is encrypted, when [aesKey] & [aesIV] is not null
   bool? isKeepKeyClearText;
 
   FlutterLightweightStoreModule(
-    /// shared_prefs/[module].xml (Android) or ~/Library/Preferences/[module].plist (iOS)
     this.module, {
     this.aesKey,
     this.aesIV,
@@ -29,10 +37,12 @@ class FlutterLightweightStoreModule {
     return await FlutterLightweightStorePlatform.unregister(module);
   }
 
+  /// Check if the key exists
   Future<bool> contains(String key) async {
     return await FlutterLightweightStorePlatform.contains(module, key: key);
   }
 
+  /// Remove the key-value pair
   Future<bool> removeKey(String key) async {
     return await FlutterLightweightStorePlatform.removeKey(module, key: key);
   }

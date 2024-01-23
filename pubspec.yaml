@@ -1,6 +1,6 @@
 name: flutter_lightweight_store
 description: A light weight key-value store (SharedPreferences & NSUserdefaults) with saving to separated/customizable xml/plist
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/isaacselement/flutter_lightweight_store
 
 environment:
